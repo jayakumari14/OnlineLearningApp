@@ -1,0 +1,4 @@
+backend/node_modules/
+frontend/online-learning-frontend/node_modules/
+backend/.env
+frontend/online-learning-frontend/.env
