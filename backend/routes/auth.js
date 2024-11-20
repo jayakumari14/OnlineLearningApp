@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const verifyToken = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -54,6 +55,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1hr",
     });
+    console.log(token); // Copy this token and try it in Postman
     res.json({
       token,
       user: { id: user._id, username: user.username, email: user.email },
@@ -62,6 +64,11 @@ router.post("/login", async (req, res) => {
     console.error("Error during login:", error);
     res.status(500).json({ error: "Server error during login" });
   }
+});
+
+// protected Route
+router.get("/protected-route", verifyToken, (req, res) => {
+  res.send("This is a protected route, you are authorized!");
 });
 
 module.exports = router;

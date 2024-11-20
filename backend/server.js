@@ -3,10 +3,11 @@ const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+dotenv.config(); // Loads environment variables from .env file
 
 const authRoutes = require("./routes/auth");
+console.log(process.env.JWT_SECRET);
 
-dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
