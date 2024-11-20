@@ -1,0 +1,12 @@
+/* CoursePage.css */
+.course-page {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.course-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* You can customize the layout of the course page if needed */

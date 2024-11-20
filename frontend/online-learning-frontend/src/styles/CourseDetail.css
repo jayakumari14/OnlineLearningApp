@@ -1,0 +1,29 @@
+/* CourseDetail.css */
+.course-detail {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.course-detail h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.course-detail p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.course-detail .btn {
+  background-color: #ff7e5f;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.course-detail .btn:hover {
+  background-color: #feb47b;
+}
