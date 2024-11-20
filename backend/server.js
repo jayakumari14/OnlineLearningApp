@@ -6,6 +6,7 @@ const cors = require("cors");
 dotenv.config(); // Loads environment variables from .env file
 
 const authRoutes = require("./routes/auth");
+const courseRoutes = require("./routes/course");
 console.log(process.env.JWT_SECRET);
 
 const PORT = process.env.PORT || 5000;
@@ -16,7 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes); //user routes
+app.use("/api/courses", courseRoutes); // course routes
 
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
