@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import "../../styles/Register.css"; // Import custom styles for the page
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -24,8 +24,8 @@ const Register = () => {
   };
 
   return (
-    <>
-      <div className="auth-container">
+    <div className="auth-container">
+      <div className="auth-card">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -35,6 +35,7 @@ const Register = () => {
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })
             }
+            required
           />
           <input
             type="email"
@@ -43,20 +44,24 @@ const Register = () => {
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
+            required
           />
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             value={formData.password}
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
+            required
           />
-          <button type="submit">Register</button>
-          {message && <p>{message}</p>}
+          <button type="submit" className="btn-register">
+            Register
+          </button>
         </form>
+        {message && <p className="message">{message}</p>}
       </div>
-    </>
+    </div>
   );
 };
 

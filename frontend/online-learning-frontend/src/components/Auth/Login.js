@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../../styles/Login.css";
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -22,23 +23,27 @@ const Login = ({ onLoginSuccess }) => {
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        {error && <p className="error">{error}</p>}
-      </form>
+      <div className="auth-card">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" className="btn-login">
+            Login
+          </button>
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };
