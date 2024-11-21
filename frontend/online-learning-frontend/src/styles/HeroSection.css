@@ -42,8 +42,8 @@
 }
 
 .hero-buttons .btn:hover {
-  background-color: #ff7e5f;
-  color: #fff;
+  background-color: #fff;
+  color: #a87bb4;
   transform: translateY(-3px);
 }
 
@@ -54,5 +54,5 @@
 
 .hero-buttons .btn-secondary:hover {
   background-color: #fff;
-  color: #ff7e5f;
+  color: #20b083;
 }

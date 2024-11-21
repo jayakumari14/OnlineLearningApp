@@ -11,12 +11,12 @@ const courseSchema = new mongoose.Schema({
   },
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "User", // Reference to the User model (Instructor)
   },
   enrolledUsers: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "User", // Reference to the enrolled User(s)
     },
   ],
 });

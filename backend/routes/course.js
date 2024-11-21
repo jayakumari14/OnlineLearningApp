@@ -2,27 +2,32 @@ const express = require("express");
 const Course = require("../models/Course");
 const verifyToken = require("../middleware/auth");
 const {
-  getMyCourses,
+  createCourse,
   getAllCourses,
 } = require("../controllers/courseController");
 
 const router = express.Router();
 
 // Create a new course (only for admins or instructors)
-router.post("/", verifyToken, async (req, res) => {
-  const { title, description } = req.body;
-  try {
-    const newCourse = new Course({
-      title,
-      description,
-      instructor: req.user.id, // Link course to the logged-in user
-    });
-    await newCourse.save();
-    res.status(201).json(newCourse);
-  } catch (error) {
-    res.status(500).json({ error: "Error creating course" });
-  }
-});
+// router.post("/", verifyToken, async (req, res) => {
+//   const { title, description } = req.body;
+//   try {
+//     const newCourse = new Course({
+//       title,
+//       description,
+//       instructor: req.user.id, // Link course to the logged-in user
+//     });
+//     await newCourse.save();
+//     res.status(201).json(newCourse);
+//   } catch (error) {
+//     res.status(500).json({ error: "Error creating course" });
+//   }
+// });
+// Route to create a course
+router.post("/", createCourse);
+
+// Route to get all courses
+router.get("/", getAllCourses);
 
 // Get all courses
 router.get("/", async (req, res) => {
@@ -53,7 +58,6 @@ router.post("/enroll/:courseId", verifyToken, async (req, res) => {
 });
 
 // Route to get courses enrolled by the logged-in user
-router.get("/my", verifyToken, getMyCourses);
-router.get("/", getAllCourses); // fetch all available courses
+router.get("/my", verifyToken);
 
 module.exports = router;

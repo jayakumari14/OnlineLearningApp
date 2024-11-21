@@ -1,29 +1,35 @@
-/* CourseDetail.css */
-.course-detail {
-  padding: 50px 20px;
+.course-list {
+  padding: 20px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.course-card h3 {
+  margin-bottom: 10px;
+}
+
+.course-card .btn {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
   text-align: center;
 }
 
-.course-detail h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.course-detail p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.course-detail .btn {
-  background-color: #ff7e5f;
-  color: #fff;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.course-detail .btn:hover {
-  background-color: #feb47b;
+.course-card .btn:hover {
+  background-color: #0056b3;
 }

@@ -28,7 +28,7 @@ const HeroSection = () => {
         </div>
         <div className="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1620396748247-6fe8c5c7290d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" //
+            src="https://images.unsplash.com/photo-1706804285677-4eb783c82642?q=80&w=1510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" //
             alt="Learning"
           />
           <p style={{ marginTop: "30px" }}>Designed by Jaya Kumari</p>

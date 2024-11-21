@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/courses" element={<CoursePage />} />
-          <Route exact path="/courses/:id" component={CourseDetail} />{" "}
+          <Route exact path="/courses/:id" element={CourseDetail} />{" "}
           {/* Route for individual course */}
           <Route
             path="/dashboard"
