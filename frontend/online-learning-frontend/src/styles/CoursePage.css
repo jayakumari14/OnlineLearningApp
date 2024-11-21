@@ -1,12 +1,41 @@
-/* CoursePage.css */
-.course-page {
-  padding: 50px 20px;
+.course-list {
+  padding: 2rem;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.courses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.course-card {
+  flex: 1 1 calc(33.333% - 1rem);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.course-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+.course-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* You can customize the layout of the course page if needed */
+.course-card .btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

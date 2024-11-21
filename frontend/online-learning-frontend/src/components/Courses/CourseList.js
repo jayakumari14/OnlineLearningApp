@@ -3,6 +3,8 @@ import axios from "axios";
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -11,6 +13,7 @@ const CourseList = () => {
           `${process.env.REACT_APP_API_URL}/api/courses`
         );
         setCourses(response.data);
+        setFilteredCourses(response.data);
       } catch (error) {
         console.log("Error fetching courses:", error);
       }
@@ -18,12 +21,29 @@ const CourseList = () => {
     fetchCourses();
   }, []);
 
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearch(searchTerm);
+    setFilteredCourses(
+      courses.filter((course) =>
+        course.title.toLowerCase().includes(searchTerm)
+      )
+    );
+  };
+
   return (
     <>
       <div className="course-list">
         <h2>Available Courses</h2>
+        <input
+          type="text"
+          placeholder="Search courses..."
+          value={search}
+          onChange={handleSearch}
+          className="search-bar"
+        />
         <div className="courses-grid">
-          {courses.map((course) => (
+          {filteredCourses.map((course) => (
             <div key={course._id} className="course-card">
               <h3>{course.title}</h3>
               <p>{course.description}</p>
