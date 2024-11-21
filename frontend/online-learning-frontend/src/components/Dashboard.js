@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
+        if (!token) {
+          navigate("/login"); // Redirect if no token
+        }
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/auth/me`,
           {
@@ -22,17 +28,34 @@ const Dashboard = () => {
       }
     };
     fetchUserData();
-  }, []);
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear token
+    navigate("/login"); // Redirect to login page
+  };
 
   if (error) return <div className="error">{error}</div>;
 
   return (
     <div className="dashboard-container">
-      <h1>Welcome, {user.username}!</h1>
-      <p>Your email: {user.email}</p>
-      <div className="dashboard-actions">
-        <button className="btn">My Courses</button>
-        <button className="btn">Explore More Courses</button>
+      <header className="dashboard-header">
+        <h1>Welcome, {user.username}!</h1>
+        <button onClick={handleLogout} className="btn-logout">
+          Logout
+        </button>
+      </header>
+      <div className="dashboard-content">
+        <p>Your email: {user.email}</p>
+        <div className="dashboard-actions">
+          <Link to="/my-courses" className="btn">
+            <button className="btn">My Courses</button>
+          </Link>
+
+          <Link to="/courses" className="btn">
+            <button className="btn">Explore More Courses</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

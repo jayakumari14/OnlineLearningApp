@@ -1,27 +1,63 @@
 .dashboard-container {
-  text-align: center;
-  padding: 2rem;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-container h1 {
-  font-size: 2rem;
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
   color: #333;
 }
 
-.dashboard-actions {
-  margin-top: 2rem;
-}
-
-.dashboard-actions .btn {
-  margin: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  border: none;
-  background-color: #4caf50;
+.btn-logout {
+  background-color: #ff6b6b;
   color: white;
-  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.dashboard-actions .btn:hover {
-  background-color: #45a049;
+.btn-logout:hover {
+  background-color: #ff4a4a;
+}
+
+.dashboard-content {
+  text-align: center;
+}
+
+.dashboard-actions {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin: 20px 0;
 }

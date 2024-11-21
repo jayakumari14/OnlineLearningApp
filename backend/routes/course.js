@@ -1,6 +1,10 @@
 const express = require("express");
 const Course = require("../models/Course");
 const verifyToken = require("../middleware/auth");
+const {
+  getMyCourses,
+  getAllCourses,
+} = require("../controllers/courseController");
 
 const router = express.Router();
 
@@ -47,5 +51,9 @@ router.post("/enroll/:courseId", verifyToken, async (req, res) => {
     res.status(500).json({ error: "Error enrolling in course" });
   }
 });
+
+// Route to get courses enrolled by the logged-in user
+router.get("/my", verifyToken, getMyCourses);
+router.get("/", getAllCourses); // fetch all available courses
 
 module.exports = router;

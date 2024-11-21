@@ -7,6 +7,8 @@ import CoursePage from "./pages/CoursePage";
 import CourseDetail from "./components/Courses/CourseDetail";
 import Dashboard from "./components/Dashboard";
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
+import MyCourses from "./components/Courses/MyCourses";
+import CourseList from "./components/Courses/CourseList";
 
 const App = () => {
   return (
@@ -24,6 +26,22 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/my-courses"
+            element={
+              <ProtectedRoute>
+                <MyCourses />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/courses"
+            element={
+              <ProtectedRoute>
+                <CourseList />
               </ProtectedRoute>
             }
           />
