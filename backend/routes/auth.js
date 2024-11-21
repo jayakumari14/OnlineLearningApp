@@ -55,7 +55,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1hr",
     });
-    console.log(token); // Copy this token and try it in Postman
+    // console.log(token); // Copy this token and try it in Postman
     res.json({
       token,
       user: { id: user._id, username: user.username, email: user.email },

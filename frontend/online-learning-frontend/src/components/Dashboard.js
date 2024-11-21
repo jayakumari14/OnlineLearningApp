@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token"); // Clear token
-    navigate("/login"); // Redirect to login page
+    navigate("/"); // Redirect to login page
   };
 
   if (error) return <div className="error">{error}</div>;
@@ -49,11 +49,11 @@ const Dashboard = () => {
         <p>Your email: {user.email}</p>
         <div className="dashboard-actions">
           <Link to="/my-courses" className="btn">
-            <button className="btn">My Courses</button>
+            My Courses
           </Link>
 
           <Link to="/courses" className="btn">
-            <button className="btn">Explore More Courses</button>
+            Explore More Courses
           </Link>
         </div>
       </div>

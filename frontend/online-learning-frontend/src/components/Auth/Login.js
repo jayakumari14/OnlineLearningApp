@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../../styles/Login.css";
+import { toast } from "react-toastify"; // Import Toastify
+// import "../../styles/Login.css";
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,10 +14,9 @@ const Login = ({ onLoginSuccess }) => {
         `${process.env.REACT_APP_API_URL}/api/auth/login`,
         { email, password }
       );
-      onLoginSuccess(response.data.token);
-      setError("");
+      onLoginSuccess(response.data.token); // Pass token to parent
     } catch (error) {
-      setError("Invalid email or password");
+      toast.error("Invalid email or password!"); // Toast for errors
     }
   };
 
@@ -41,7 +40,6 @@ const Login = ({ onLoginSuccess }) => {
           <button type="submit" className="btn-login">
             Login
           </button>
-          {error && <p className="error">{error}</p>}
         </form>
       </div>
     </div>
