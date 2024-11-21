@@ -71,4 +71,13 @@ router.get("/protected-route", verifyToken, (req, res) => {
   res.send("This is a protected route, you are authorized!");
 });
 
+router.get("/me", verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching user data" });
+  }
+});
+
 module.exports = router;

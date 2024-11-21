@@ -1,0 +1,27 @@
+.dashboard-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.dashboard-container h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.dashboard-actions {
+  margin-top: 2rem;
+}
+
+.dashboard-actions .btn {
+  margin: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dashboard-actions .btn:hover {
+  background-color: #45a049;
+}
