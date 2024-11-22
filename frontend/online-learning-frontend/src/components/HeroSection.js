@@ -27,13 +27,28 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1706804285677-4eb783c82642?q=80&w=1510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" //
-            alt="Learning"
-          />
-          <p style={{ marginTop: "30px" }}>
-            Created by Jaya Kumari-kumarijaya127@gmail.com
-          </p>
+          <img src="/images/hero-section.avif" alt="Learning" />
+
+          <footer
+            style={{
+              backgroundColor: "#f1f1f1",
+              padding: "20px 0",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#888",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
+              Created by <strong>Jaya</strong> |{" "}
+              <a href="mailto:jaya127@gmail.com" style={{ color: "#0066cc" }}>
+                kumarijaya127@gmail.com
+              </a>
+            </p>
+          </footer>
         </div>
       </div>
     </>

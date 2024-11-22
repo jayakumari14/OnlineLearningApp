@@ -32,7 +32,7 @@
 .dashboard-header .btn-logout {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #f44336;
+  background-color: #f70a3d;
   color: white;
   border: none;
   border-radius: 5px;
@@ -42,7 +42,7 @@
 }
 
 .dashboard-header .btn-logout:hover {
-  background-color: #d32f2f;
+  background-color: #e6254e;
 }
 
 .dashboard-buttons {
