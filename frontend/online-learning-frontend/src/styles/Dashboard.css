@@ -54,7 +54,6 @@
 }
 
 .dashboard-card {
-  background: #fff;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   text-align: center;
@@ -62,8 +61,14 @@
   width: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
-  color: #333;
+  color: white;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background: rgb(58, 131, 138);
+  background: linear-gradient(
+    90deg,
+    rgba(58, 131, 138, 1) 0%,
+    rgba(0, 212, 255, 1) 95%
+  );
 }
 
 .dashboard-card:hover {
