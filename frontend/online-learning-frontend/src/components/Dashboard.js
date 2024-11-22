@@ -39,23 +39,42 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
+      {/* Header Section */}
       <header className="dashboard-header">
-        <h1>Welcome, {user.username}!</h1>
+        <div className="header-left">
+          <h1>Welcome, {user.username}!</h1>
+          <p>“Learning never exhausts the mind.” – Leonardo da Vinci</p>
+        </div>
         <button onClick={handleLogout} className="btn-logout">
           Logout
         </button>
       </header>
-      <div className="dashboard-content">
-        <p>Your email: {user.email}</p>
-        <div className="dashboard-actions">
-          <Link to="/my-courses" className="btn">
-            My Courses
-          </Link>
 
-          <Link to="/courses" className="btn">
-            Explore More Courses
-          </Link>
-        </div>
+      {/* Dashboard Buttons */}
+      <div className="dashboard-buttons">
+        <Link to="/my-courses" className="dashboard-card">
+          <div className="card-content">
+            <img
+              src="/images/my-courses-icon.svg"
+              alt="My Courses"
+              className="card-icon"
+            />
+            <h2>My Courses</h2>
+            <p>View and continue your enrolled courses.</p>
+          </div>
+        </Link>
+
+        <Link to="/courses" className="dashboard-card">
+          <div className="card-content">
+            <img
+              src="/images/explore-courses-icon.svg"
+              alt="Explore Courses"
+              className="card-icon"
+            />
+            <h2>Explore More Courses</h2>
+            <p>Find new courses to enhance your skills.</p>
+          </div>
+        </Link>
       </div>
     </div>
   );

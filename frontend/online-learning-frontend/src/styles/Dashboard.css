@@ -1,64 +1,101 @@
+/* General Dashboard Styling */
 .dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
   padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
 }
 
 .dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-header h1 {
-  font-size: 24px;
+  font-size: 2.5rem;
   color: #333;
 }
 
-.btn-logout {
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+.dashboard-header p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 10px;
 }
 
-.btn-logout:hover {
-  background-color: #ff4a4a;
-}
-
-.dashboard-content {
-  text-align: center;
-}
-
-.dashboard-actions {
+.dashboard-header .btn-logout {
   margin-top: 20px;
-}
-
-.btn {
-  /* background-color: #007bff; */
-  background-color: #a56dd6;
+  padding: 10px 20px;
+  background-color: #f44336;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
-.btn:hover {
-  background-color: #0056b3;
+.dashboard-header .btn-logout:hover {
+  background-color: #d32f2f;
+}
+
+.dashboard-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.dashboard-card h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.dashboard-card p {
+  color: #666;
+  font-size: 1rem;
 }
 
 .error {
   color: red;
+  font-size: 1.2rem;
   text-align: center;
-  margin: 20px 0;
+  margin-top: 20px;
 }
