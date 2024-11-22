@@ -31,6 +31,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000, // 30 seconds
+    autoIndex: true,
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));

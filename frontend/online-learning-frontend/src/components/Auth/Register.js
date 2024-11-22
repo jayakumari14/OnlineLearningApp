@@ -19,9 +19,21 @@ const Register = () => {
         `${process.env.REACT_APP_API_URL}/api/auth/register`,
         formData
       );
-      // setMessage(response.data.message || "User registered successfully!");
+
+      // Show success message
       toast.success(response.data.message || "User registered successfully!");
+
+      // Clear input fields by resetting the formData state
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+      });
+
+      // Optionally clear any error message
+      setMessage("");
     } catch (error) {
+      // Show error messages based on the response
       // setMessage("Error registering user");
       if (error.response && error.response.status === 400) {
         toast.error(error.response.data.message || "Email is already in use.");
