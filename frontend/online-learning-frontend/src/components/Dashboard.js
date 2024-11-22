@@ -55,7 +55,7 @@ const Dashboard = () => {
         <Link to="/my-courses" className="dashboard-card">
           <div className="card-content">
             <img
-              src="/images/my-courses-icon.svg"
+              src="/images/my-course.avif"
               alt="My Courses"
               className="card-icon"
             />
@@ -67,7 +67,7 @@ const Dashboard = () => {
         <Link to="/courses" className="dashboard-card">
           <div className="card-content">
             <img
-              src="/images/explore-courses-icon.svg"
+              src="/images/course.avif"
               alt="Explore Courses"
               className="card-icon"
             />
