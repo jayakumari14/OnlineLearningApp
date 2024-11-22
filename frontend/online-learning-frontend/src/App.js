@@ -15,15 +15,16 @@ import CourseList from "./components/Courses/CourseList";
 const App = () => {
   return (
     <>
-      <Router>
+      <Router basename="/frontend/online-learning-frontend">
         <ToastContainer position="top-center" autoClose={3000} />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/courses" element={<CoursePage />} />
-          <Route exact path="/courses/:id" element={CourseDetail} />{" "}
-          {/* Route for individual course */}
+          <Route path="/courses/:id" element={<CourseDetail />} />{" "}
+          {/* Updated */}
           <Route
             path="/dashboard"
             element={
