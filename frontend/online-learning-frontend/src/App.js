@@ -15,7 +15,7 @@ import CourseList from "./components/Courses/CourseList";
 const App = () => {
   return (
     <>
-      <Router basename="/frontend/online-learning-frontend">
+      <Router>
         <ToastContainer position="top-center" autoClose={3000} />
 
         <Routes>
