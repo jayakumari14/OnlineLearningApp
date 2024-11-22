@@ -16,6 +16,7 @@ const MyCourses = () => {
         );
         setCourses(response.data);
       } catch (error) {
+        console.error("Error fetching courses:", error);
         setError("Failed to fetch your courses");
       }
     };

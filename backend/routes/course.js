@@ -58,6 +58,19 @@ router.post("/enroll/:courseId", verifyToken, async (req, res) => {
 });
 
 // Route to get courses enrolled by the logged-in user
-router.get("/my", verifyToken);
+router.get("/my", verifyToken, async (req, res) => {
+  try {
+    // Find courses where the logged-in user is enrolled
+    const courses = await Course.find({
+      enrolledUsers: req.user.id, // Make sure `req.user.id` matches the enrolledUsers array
+    });
+    if (!courses) {
+      return res.status(404).json({ error: "No enrolled courses found" });
+    }
+    res.json(courses);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching enrolled courses" });
+  }
+});
 
 module.exports = router;
