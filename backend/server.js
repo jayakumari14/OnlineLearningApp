@@ -16,6 +16,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+  cors({
+    origin: "https://elearnappi.netlify.app/", // replace with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 // Routes
 app.use("/api/auth", authRoutes); //user routes
 app.use("/api/courses", courseRoutes); // course routes
