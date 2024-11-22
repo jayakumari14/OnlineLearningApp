@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../../styles/Register.css"; // Import custom styles for the page
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const Register = () => {
     email: "",
     password: "",
   });
+
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -17,9 +19,15 @@ const Register = () => {
         `${process.env.REACT_APP_API_URL}/api/auth/register`,
         formData
       );
-      setMessage(response.data.message || "User registered successfully!");
+      // setMessage(response.data.message || "User registered successfully!");
+      toast.success(response.data.message || "User registered successfully!");
     } catch (error) {
-      setMessage("Error registering user");
+      // setMessage("Error registering user");
+      if (error.response && error.response.status === 400) {
+        toast.error(error.response.data.message || "Email is already in use.");
+      } else {
+        toast.error("Failed to register user. Please try again.");
+      }
     }
   };
 
