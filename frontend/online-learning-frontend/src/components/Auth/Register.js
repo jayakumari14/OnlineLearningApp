@@ -17,7 +17,12 @@ const Register = () => {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/register`,
-        formData
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       // Show success message
