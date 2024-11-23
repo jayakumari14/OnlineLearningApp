@@ -29,7 +29,7 @@ exports.getAllCourses = async (req, res) => {
     const courses = await Course.find()
       .populate("instructor", "name email")
       .populate("enrolledUsers", "name email");
-    console.log("courses", courses);
+    // console.log("courses", courses);
 
     if (!courses) {
       return res.status(404).json({ message: "No courses found." });
