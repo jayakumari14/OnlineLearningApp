@@ -1,6 +1,7 @@
 const express = require("express");
 const Course = require("../models/Course");
 const verifyToken = require("../middleware/auth");
+const User = require("../models/User");
 const {
   createCourse,
   getAllCourses,
@@ -30,14 +31,14 @@ router.post("/", createCourse);
 router.get("/", getAllCourses);
 
 // Get all courses
-router.get("/", async (req, res) => {
-  try {
-    const courses = new Course.find();
-    res.json(courses);
-  } catch (error) {
-    res.status(500).json({ error: "Error fetching courses" });
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const courses = new Course.find(); //wrong it should be await course.find()
+//     res.json(courses);
+//   } catch (error) {
+//     res.status(500).json({ error: "Error fetching courses" });
+//   }
+// });
 
 // Enroll in a course
 router.post("/enroll/:courseId", verifyToken, async (req, res) => {
@@ -46,11 +47,25 @@ router.post("/enroll/:courseId", verifyToken, async (req, res) => {
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
     if (course.enrolledUsers.includes(req.user.id)) {
       return res.status(400).json({ error: "Already enrolled in this course" });
     }
+
+    // Prevent enrolling again if already in the user's enrolledCourses
+    if (user.enrolledCourses.includes(course._id)) {
+      return res.status(400).json({ error: "Already enrolled in this course" });
+    }
+
+    // Enroll user and update both course and user
     course.enrolledUsers.push(req.user.id);
+    user.enrolledCourses.push(course._id);
     await course.save();
+    await user.save();
+
     res.json({ message: "Successfully enrolled in course", course });
   } catch (error) {
     res.status(500).json({ error: "Error enrolling in course" });

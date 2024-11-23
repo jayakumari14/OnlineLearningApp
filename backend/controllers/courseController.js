@@ -26,7 +26,9 @@ exports.createCourse = async (req, res) => {
 // Fetch all courses
 exports.getAllCourses = async (req, res) => {
   try {
-    const courses = await Course.find().populate("instructor", "name email");
+    const courses = await Course.find()
+      .populate("instructor", "name email")
+      .populate("enrolledUsers", "name email");
     console.log("courses", courses);
 
     if (!courses) {
@@ -45,7 +47,7 @@ exports.getMyCourses = async (req, res) => {
   try {
     const user = await User.findById(req.user.id); // req.user.id is populated by verifyToken middleware
     const enrolledCourses = await Course.find({
-      _id: { $in: user.enrolledCourses }, // Assuming `enrolledCourses` stores course IDs
+      _id: { $in: user.enrolledCourses }, //  `enrolledCourses` stores course IDs
     });
 
     res.json(enrolledCourses);

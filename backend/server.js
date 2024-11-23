@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
+const path = require("path");
 const cors = require("cors");
 dotenv.config(); // Loads environment variables from .env file
 
@@ -12,9 +13,24 @@ console.log(process.env.JWT_SECRET);
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? ["https://your-production-domain.com"]
+    : ["http://localhost:3000"];
+app.use(
+  cors({
+    origin: allowedOrigins, // Add other origins for production
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files (e.g., images, CSS, JS)
+// app.use("/images", express.static(path.join(__dirname, "images")));
+// Serve the React app's build folder
+// app.use(express.static(path.join(__dirname, "frontend/build")));
 
 // Routes
 app.use("/api/auth", authRoutes); //user routes
