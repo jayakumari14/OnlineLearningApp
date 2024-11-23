@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["https://your-production-domain.com"]
+    ? ["https://onlinelearningapp.netlify.app/"]
     : ["http://localhost:3000"];
 app.use(
   cors({
