@@ -15,6 +15,7 @@ const Dashboard = () => {
         const token = localStorage.getItem("token");
         if (!token) {
           navigate("/login"); // Redirect if no token
+          return; // Prevent further code execution if no token
         }
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/auth/me`,

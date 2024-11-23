@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify"; // Import Toastify
-import { useNavigate } from "react-router-dom"; // For redirecting after login
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // Loading state
-  const navigate = useNavigate(); // For navigation after login
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +21,11 @@ const Login = ({ onLoginSuccess }) => {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/login`,
         { email, password }
+      );
+      console.log("API Request Payload:", { email, password });
+      console.log(
+        "API URL:",
+        `${process.env.REACT_APP_API_URL}/api/auth/login`
       );
 
       onLoginSuccess(response.data.token); // Pass token to parent
