@@ -22,6 +22,7 @@ app.use(
     origin: allowedOrigins, // Add other origins for production
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 app.use(express.json());
