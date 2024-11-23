@@ -67,7 +67,7 @@ const Dashboard = () => {
         <Link to="/courses" className="dashboard-card">
           <div className="card-content">
             <img
-              src="/images/course.avif"
+              src="/images/explore-courses.jpeg"
               alt="Explore Courses"
               className="card-icon"
             />
